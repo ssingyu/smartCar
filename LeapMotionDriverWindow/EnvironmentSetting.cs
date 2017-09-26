@@ -24,16 +24,16 @@ namespace LeapMotionDriverWindow
 
         protected override void BuildSettingList()
         {
-            AddingSetting("swipeDetectionDelay", 700);
-            AddingSetting("closeWindowDelay", 1000);
-            AddingSetting("topAnimationSpeed", 0.2);
-            AddingSetting("windowDefaultWidth", 640);
-            AddingSetting("windowDefaultHeight", 480);
-            AddingSetting("bigSize", 2.0);
-            AddingSetting("mediumSize", 1.0);
-            AddingSetting("smallSize", 0.5);
-            AddingSetting("gestureSwipeMinLength", 150);
-            AddingSetting("gestureSwipeMinVelocity", 1000);
+            // AddingSetting("swipeDetectionDelay", 700);
+            // AddingSetting("closeWindowDelay", 1000);
+            // AddingSetting("topAnimationSpeed", 0.2);
+            // AddingSetting("windowDefaultWidth", 640);
+            // AddingSetting("windowDefaultHeight", 480);
+            // AddingSetting("bigSize", 2.0);
+            // AddingSetting("mediumSize", 1.0);
+            // AddingSetting("smallSize", 0.5);
+            // AddingSetting("gestureSwipeMinLength", 150);
+            // AddingSetting("gestureSwipeMinVelocity", 1000);
             base.InitSettingList();
         }
     }

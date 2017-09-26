@@ -124,14 +124,14 @@ namespace LeapMotionDriverWindow
         }
         public void FullScreenVideo()
         {
-            isVideoDragMode = false;                        
-            if (this.googleMapView.Children.Contains(this.statusView.route)) HideGoogleMap();
-            this.mainMediaElement.Margin = new Thickness(0, 0, 0, 0);
-            this.mainMediaElement.Width = this.workView.Width;
-            this.mainMediaElement.Height = this.workView.Height;            
-            this.mainMediaElement.Position = TimeSpan.Zero;
-            this.mainMediaElement.Play();
-            this.mainMediaElement.Visibility = Visibility.Visible;
+            // isVideoDragMode = false;                        
+            // if (this.googleMapView.Children.Contains(this.statusView.route)) HideGoogleMap();
+            // this.mainMediaElement.Margin = new Thickness(0, 0, 0, 0);
+            // this.mainMediaElement.Width = this.workView.Width;
+            // this.mainMediaElement.Height = this.workView.Height;            
+            // this.mainMediaElement.Position = TimeSpan.Zero;
+            // this.mainMediaElement.Play();
+            // this.mainMediaElement.Visibility = Visibility.Visible;
         }
         public void HideVideo()
         {
@@ -142,15 +142,15 @@ namespace LeapMotionDriverWindow
         }
         public void StartVideoDragMode()
         {
-            HideGoogleMap();            
-            isVideoDragMode = true;
-            this.mainMediaElement.Width = windowDefaultWidth;
-            this.mainMediaElement.Height = windowDefaultHeight;
-            int step = (int)this.Width / 3;
-            this.mainMediaElement.Margin = new Thickness(step + step / 2 - this.mainMediaElement.Width / 2, this.workView.Height / 2 - this.mainMediaElement.Height / 2, 0, 0);
-            this.mainMediaElement.Position = TimeSpan.Zero;
-            this.mainMediaElement.Play();
-            this.mainMediaElement.Visibility = Visibility.Visible;
+            // HideGoogleMap();            
+            // isVideoDragMode = true;
+            // this.mainMediaElement.Width = windowDefaultWidth;
+            // this.mainMediaElement.Height = windowDefaultHeight;
+            // int step = (int)this.Width / 3;
+            // this.mainMediaElement.Margin = new Thickness(step + step / 2 - this.mainMediaElement.Width / 2, this.workView.Height / 2 - this.mainMediaElement.Height / 2, 0, 0);
+            // this.mainMediaElement.Position = TimeSpan.Zero;
+            // this.mainMediaElement.Play();
+            // this.mainMediaElement.Visibility = Visibility.Visible;
         }
         private void menuWindow_OnButtonSelected(string command)
         {
