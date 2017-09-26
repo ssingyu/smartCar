@@ -58,18 +58,18 @@ namespace LeapMotionDriverWindow
                     case Gesture.GestureType.TYPE_CIRCLE:
                         //Handle circle gestures
                         break;
-                    case Gesture.GestureType.TYPE_KEY_TAP:
-                        //Handle key tap gestures
-                        break;
-                    case Gesture.GestureType.TYPE_SCREEN_TAP:
-                        //Handle screen tap gestures
-                        break;
-                    case Gesture.GestureType.TYPE_SWIPE:
-                        HandleSwipe(new SwipeGesture(currentFrame.Gestures()[g]));
-                        break;
-                    default:
-                        //Handle unrecognized gestures
-                        break;
+                    // case Gesture.GestureType.TYPE_KEY_TAP:
+                    //     //Handle key tap gestures
+                    //     break;
+                    // case Gesture.GestureType.TYPE_SCREEN_TAP:
+                    //     //Handle screen tap gestures
+                    //     break;
+                    // case Gesture.GestureType.TYPE_SWIPE:
+                    //     HandleSwipe(new SwipeGesture(currentFrame.Gestures()[g]));
+                    //     break;
+                    // default:
+                    //     //Handle unrecognized gestures
+                    //     break;
                 }
             }
         }
@@ -102,50 +102,50 @@ namespace LeapMotionDriverWindow
                 {
                     var xScreenIntersect = screen.Intersect(finger, true).x;
                     var yScreenIntersect = screen.Intersect(finger, true).y;
-                    if (xScreenIntersect.ToString() != "NaN")
-                    {
-                        var x = (int)(xScreenIntersect * screen.WidthPixels);
-                        var y = (int)(screen.HeightPixels - (yScreenIntersect * screen.HeightPixels));
-                        if (this.OnFingerPointer != null)
-                            this.OnFingerPointer(new Point(x, y));
-                    }
-                }
-            }
-        }
-        private void CheckPalmOpen(Frame currentFrame)
-        {
-            if (currentFrame.Hands.Count > 0 && currentFrame.Hands[0].Direction.y > 0)
-            {
-                if (this.OnPalmOpened != null) this.OnPalmOpened(this, EventArgs.Empty);
-            }
-        }
-        private void GripTranslation(Controller controller, Frame currentFrame)
-        {
-            if (currentFrame.Hands.Count > 0 && currentFrame.Hands[0].GrabStrength > 0.9)
-            {
-                var grabHand = currentFrame.Hands[0];
-                if (lastHandGrabPosition == EMPTY_POINT)
-                {
-                    lastHandGrabPosition = new Point(grabHand.StabilizedPalmPosition.x, grabHand.StabilizedPalmPosition.y);
-                    if (this.OnGriped != null)
-                        this.OnGriped(this, EventArgs.Empty);
-                }
-                else
-                {
-                    var screen = controller.LocatedScreens.ClosestScreenHit(grabHand.StabilizedPalmPosition, grabHand.Direction);
-                    if (screen != null && screen.IsValid)
-                    {
-                        var xScreenIntersect = screen.Intersect(grabHand.StabilizedPalmPosition, grabHand.Direction, true).x;
-                        var yScreenIntersect = screen.Intersect(grabHand.StabilizedPalmPosition, grabHand.Direction, true).y;
-                        if (xScreenIntersect.ToString() != "NaN")
-                        {
-                            var x = (int)(xScreenIntersect * screen.WidthPixels);
-                            var y = (int)(screen.HeightPixels - (yScreenIntersect * screen.HeightPixels));
-                            if (this.OnGripMove != null)
-                                this.OnGripMove(new System.Windows.Vector(x, y));
-                        }
-                        lastHandGrabPosition = new Point(grabHand.StabilizedPalmPosition.x, grabHand.StabilizedPalmPosition.y);
-                    }
+        //             if (xScreenIntersect.ToString() != "NaN")
+        //             {
+        //                 var x = (int)(xScreenIntersect * screen.WidthPixels);
+        //                 var y = (int)(screen.HeightPixels - (yScreenIntersect * screen.HeightPixels));
+        //                 if (this.OnFingerPointer != null)
+        //                     this.OnFingerPointer(new Point(x, y));
+        //             }
+        //         }
+        //     }
+        // }
+        // private void CheckPalmOpen(Frame currentFrame)
+        // {
+        //     if (currentFrame.Hands.Count > 0 && currentFrame.Hands[0].Direction.y > 0)
+        //     {
+        //         if (this.OnPalmOpened != null) this.OnPalmOpened(this, EventArgs.Empty);
+        //     }
+        // }
+        // private void GripTranslation(Controller controller, Frame currentFrame)
+        // {
+        //     if (currentFrame.Hands.Count > 0 && currentFrame.Hands[0].GrabStrength > 0.9)
+        //     {
+        //         var grabHand = currentFrame.Hands[0];
+        //         if (lastHandGrabPosition == EMPTY_POINT)
+        //         {
+        //             lastHandGrabPosition = new Point(grabHand.StabilizedPalmPosition.x, grabHand.StabilizedPalmPosition.y);
+        //             if (this.OnGriped != null)
+        //                 this.OnGriped(this, EventArgs.Empty);
+        //         }
+        //         else
+        //         {
+        //             var screen = controller.LocatedScreens.ClosestScreenHit(grabHand.StabilizedPalmPosition, grabHand.Direction);
+        //             if (screen != null && screen.IsValid)
+        //             {
+        //                 var xScreenIntersect = screen.Intersect(grabHand.StabilizedPalmPosition, grabHand.Direction, true).x;
+        //                 var yScreenIntersect = screen.Intersect(grabHand.StabilizedPalmPosition, grabHand.Direction, true).y;
+        //                 if (xScreenIntersect.ToString() != "NaN")
+        //                 {
+        //                     var x = (int)(xScreenIntersect * screen.WidthPixels);
+        //                     var y = (int)(screen.HeightPixels - (yScreenIntersect * screen.HeightPixels));
+        //                     if (this.OnGripMove != null)
+        //                         this.OnGripMove(new System.Windows.Vector(x, y));
+        //                 }
+        //                 lastHandGrabPosition = new Point(grabHand.StabilizedPalmPosition.x, grabHand.StabilizedPalmPosition.y);
+        //             }
                 }
             }
             else
